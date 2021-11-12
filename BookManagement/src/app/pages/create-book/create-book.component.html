@@ -1,0 +1,27 @@
+<div class="mb-3">
+  <a style="margin-right: .5em;" routerLink="/" class="btn btn-primary">DANH SÁCH</a>
+</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">TÊN SÁCH</label>
+    <input formControlName="title" class="form-control" id="exampleFormControlTextarea1" rows="3">
+    <div *ngIf="control('title').invalid" class="text-danger">Tên sách không được để trống</div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">TÁC GIẢ</label>
+    <input formControlName="author" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Author's name">
+    <div *ngIf="control('author').invalid" class="text-danger">Tên tác giả không được để trống</div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">MÔ TẢ</label>
+    <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div *ngIf="control('description').invalid" class="text-danger">Mô tả không được để trống</div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary btn-block">THÊM SÁCH MỚI</button>
+    <button (click)="goBack()" class="btn btn-danger mx-1">THOÁT</button>
+  </div>
+</form>
